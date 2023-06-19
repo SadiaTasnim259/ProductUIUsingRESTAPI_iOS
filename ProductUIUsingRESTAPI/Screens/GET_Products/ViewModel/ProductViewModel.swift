@@ -11,9 +11,13 @@ import Foundation
 final class ProductViewModel{
     
     var productList:[ProductContent] = []
+    
     var eventHandler:((_ event:Event) -> Void)?
     
-    
+    // MARK: - Event handler initialization
+    func initEventController( _ event:@escaping (_ event:Event) -> Void)   {
+        self.eventHandler = event
+    }
 
     // MARK: - GET product
 
@@ -35,10 +39,7 @@ final class ProductViewModel{
     }
     
     
-    // MARK: - Event handler initialization
-    func initEventController( _ event:@escaping (_ event:Event) -> Void)   {
-        self.eventHandler = event
-    }
+    
     
 }
 

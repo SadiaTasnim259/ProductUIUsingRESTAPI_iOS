@@ -27,11 +27,14 @@ class ProductListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ProductListViewCell", bundle: nil), forCellReuseIdentifier: "ProductListViewCell")
-        configuration()
     }
 
     @objc func refresh(_ sender: Any) {
         productViewModel.getProduct()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configuration()
     }
 
     func configuration() {
@@ -57,10 +60,17 @@ class ProductListViewController: UIViewController {
                 self.tableView.reloadData()
 
             case .error(let error):
-                print(error)
+                print(error as Any)
             }
         }
     }
+    
+    @IBAction func addButtonAdded(_ sender: UIBarButtonItem) {
+        let provideProductInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProvideProductInfoViewController") as! ProvideProductInfoViewController
+                
+                self.navigationController?.pushViewController(provideProductInfoViewController, animated: true)
+    }
+    
 
 }
 

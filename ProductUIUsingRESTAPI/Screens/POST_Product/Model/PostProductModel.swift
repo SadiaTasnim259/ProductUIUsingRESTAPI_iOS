@@ -1,5 +1,5 @@
 //
-//  ProductModel.swift
+//  PostProductModel.swift
 //  ProductUIUsingRESTAPI
 //
 //  Created by Sadia on 19/6/23.
@@ -7,10 +7,12 @@
 
 import Foundation
 
-// MARK: - GetProductModel
-struct GetProductModelList: Codable {
+// MARK: - ProductAddResponse
+struct ProductAddResponse: Codable {
     var flag: Bool?
     var message: String?
-    var content: [ProductContent]?
+    var content: ProductContent?
 }
+
+
 

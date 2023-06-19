@@ -34,7 +34,13 @@
                             <constraint firstItem="K4m-xa-Vel" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rSA-BV-tae"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pEn-zw-gbj"/>
+                    <navigationItem key="navigationItem" id="pEn-zw-gbj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7vx-G6-hKf">
+                            <connections>
+                                <action selector="addButtonAdded:" destination="BYZ-38-t0r" id="XR3-tf-lT4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="indicatorView" destination="3KL-Fu-g1A" id="7KN-Is-0r7"/>
                         <outlet property="tableView" destination="K4m-xa-Vel" id="GD4-JY-bLd"/>
@@ -43,6 +49,97 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="754.96183206106866" y="-20.422535211267608"/>
+        </scene>
+        <!--Provide Product Info View Controller-->
+        <scene sceneID="3wV-LE-0J0">
+            <objects>
+                <viewController storyboardIdentifier="ProvideProductInfoViewController" id="T0A-9h-8H3" customClass="ProvideProductInfoViewController" customModule="ProductUIUsingRESTAPI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rSL-qk-ZiB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="96M-Zk-59A">
+                                <rect key="frame" x="35" y="296.33333333333337" width="323" height="259.33333333333337"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Product Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YXN-EW-wPM">
+                                        <rect key="frame" x="0.0" y="0.0" width="323" height="50"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Product Quentity" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JmV-2R-Nqq">
+                                        <rect key="frame" x="0.0" y="70" width="323" height="49.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Product Price" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5XI-HM-LVG">
+                                        <rect key="frame" x="0.0" y="139.66666666666669" width="323" height="50"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Product Image URL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bDo-UA-Hw8">
+                                        <rect key="frame" x="0.0" y="209.66666666666669" width="323" height="49.666666666666686"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter New Product" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noE-ar-QBC">
+                                <rect key="frame" x="62" y="129" width="268" height="27.333333333333343"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                                <color key="textColor" systemColor="systemMintColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="bhm-Q3-xvb">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swh-02-lKZ">
+                                <rect key="frame" x="154" y="595.66666666666663" width="84" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="Cv6-Uz-h3y"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="SAVE">
+                                    <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                    <color key="baseBackgroundColor" systemColor="systemMintColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="T0A-9h-8H3" eventType="touchUpInside" id="YCK-b2-eZJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Prm-7b-CxR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="noE-ar-QBC" firstAttribute="leading" secondItem="Prm-7b-CxR" secondAttribute="leading" constant="62" id="2r0-lv-nyA"/>
+                            <constraint firstItem="Prm-7b-CxR" firstAttribute="bottom" secondItem="bhm-Q3-xvb" secondAttribute="bottom" id="3TG-lC-Zd0"/>
+                            <constraint firstItem="Swh-02-lKZ" firstAttribute="top" secondItem="96M-Zk-59A" secondAttribute="bottom" constant="40" id="6cQ-BB-Y2A"/>
+                            <constraint firstItem="96M-Zk-59A" firstAttribute="top" secondItem="noE-ar-QBC" secondAttribute="bottom" constant="140" id="BY5-Ra-QrU"/>
+                            <constraint firstItem="Prm-7b-CxR" firstAttribute="trailing" secondItem="bhm-Q3-xvb" secondAttribute="trailing" id="F6D-XE-80e"/>
+                            <constraint firstItem="noE-ar-QBC" firstAttribute="top" secondItem="Prm-7b-CxR" secondAttribute="top" constant="70" id="Soa-d0-xHS"/>
+                            <constraint firstItem="Prm-7b-CxR" firstAttribute="trailing" secondItem="noE-ar-QBC" secondAttribute="trailing" constant="63" id="Vpf-ho-ZMm"/>
+                            <constraint firstItem="96M-Zk-59A" firstAttribute="leading" secondItem="Prm-7b-CxR" secondAttribute="leading" constant="35" id="Wky-IE-GxR"/>
+                            <constraint firstItem="Prm-7b-CxR" firstAttribute="trailing" secondItem="96M-Zk-59A" secondAttribute="trailing" constant="35" id="ixn-nx-BBX"/>
+                            <constraint firstItem="96M-Zk-59A" firstAttribute="centerY" secondItem="rSL-qk-ZiB" secondAttribute="centerY" id="iyz-MV-8mC"/>
+                            <constraint firstItem="96M-Zk-59A" firstAttribute="centerX" secondItem="rSL-qk-ZiB" secondAttribute="centerX" id="m5h-y7-0v7"/>
+                            <constraint firstItem="Prm-7b-CxR" firstAttribute="trailing" secondItem="Swh-02-lKZ" secondAttribute="trailing" constant="155" id="pD4-oy-J5E"/>
+                            <constraint firstItem="bhm-Q3-xvb" firstAttribute="top" secondItem="Prm-7b-CxR" secondAttribute="top" id="sbH-Vd-nrJ"/>
+                            <constraint firstItem="bhm-Q3-xvb" firstAttribute="leading" secondItem="Prm-7b-CxR" secondAttribute="leading" id="yJg-TF-cax"/>
+                            <constraint firstItem="Swh-02-lKZ" firstAttribute="leading" secondItem="Prm-7b-CxR" secondAttribute="leading" constant="154" id="yZP-gB-NFe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="entryLabel" destination="noE-ar-QBC" id="3m4-w7-5rd"/>
+                        <outlet property="imageTextField" destination="bDo-UA-Hw8" id="CaL-MP-tDT"/>
+                        <outlet property="indicatorView" destination="bhm-Q3-xvb" id="8vZ-U0-Gac"/>
+                        <outlet property="nameTextField" destination="YXN-EW-wPM" id="hLg-mx-EOi"/>
+                        <outlet property="priceTextField" destination="5XI-HM-LVG" id="U4M-F8-DUM"/>
+                        <outlet property="quentityTextField" destination="JmV-2R-Nqq" id="j5G-Db-D3g"/>
+                        <outlet property="saveButton" destination="Swh-02-lKZ" id="0BO-nO-drg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zXF-ey-HAP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1470.9923664122136" y="-20.422535211267608"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sHa-jI-BhF">
@@ -66,6 +163,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
