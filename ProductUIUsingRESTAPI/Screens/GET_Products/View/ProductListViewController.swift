@@ -53,7 +53,6 @@ class ProductListViewController: UIViewController {
                 break
             case .stopLoading:
                 self.refreshControl.endRefreshing()
-                break
             case .dataLoaded:
                 self.indicatorView.stopAnimating()
                 self.productList = self.productViewModel.productList
@@ -95,4 +94,16 @@ extension ProductListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true) // Row select effect
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+            let update = UIContextualAction(style: .normal, title: "Update") { _, _, _ in
+                
+            }
+            update.backgroundColor = .systemIndigo
+            
+            let delete = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+               
+            }
+            return UISwipeActionsConfiguration(actions: [delete,update])
+        }
 }

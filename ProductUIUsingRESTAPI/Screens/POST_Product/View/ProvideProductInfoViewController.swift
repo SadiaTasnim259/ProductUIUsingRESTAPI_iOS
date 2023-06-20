@@ -21,25 +21,20 @@ class ProvideProductInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        observeEvent()
+        observEvent()
     }
     
-    func observeEvent() {
+    func observEvent(){
         provideProductInfoViewModel.initEventController { event in
             switch event {
             case .loading:
                 self.indicatorView.startAnimating()
-                break
             case .stopLoading:
                 self.indicatorView.stopAnimating()
-                break
             case .dataLoaded:
                 self.showAlert(message: "Product Saved")
-
-            case .error(let error):
-                print(error as Any)
-                self.openAlert(message: error?.localizedDescription ?? "Error")
+            case .error(let string):
+                self.openAlert(message: string ?? "Unable to save product")
             }
         }
     }
@@ -63,10 +58,7 @@ class ProvideProductInfoViewController: UIViewController {
                     openAlert(message: "Please enter your Image URL")
                     return
                 }
-        
-        
-        provideProductInfoViewModel.addProduct(name: name, quentity: quentity, price: price, image: image)
-        
+        provideProductInfoViewModel.addProduct(name: name, price: price, quentity: quentity, image: image)
     }
     
     

@@ -13,7 +13,7 @@ enum Event{
     case loading
     case stopLoading
     case dataLoaded
-    case error(Error?)
+    case error(String?)
     
     
 }

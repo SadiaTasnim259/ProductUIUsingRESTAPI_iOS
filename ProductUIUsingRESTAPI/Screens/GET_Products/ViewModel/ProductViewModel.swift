@@ -32,15 +32,11 @@ final class ProductViewModel{
                     self.productList = success.content ?? []
                     self.eventHandler?(.dataLoaded)
                 case .failure(let failure):
-                    self.eventHandler?(.error(failure))
+                    self.eventHandler?(.error(failure.localizedDescription))
                 }
             }
         }
     }
-    
-    
-    
-    
 }
 
 
