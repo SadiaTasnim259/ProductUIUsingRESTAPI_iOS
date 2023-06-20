@@ -68,11 +68,8 @@ class ProvideProductInfoViewController: UIViewController {
 extension ProvideProductInfoViewController{
     func openAlert(message: String) -> Void {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertController.Style.alert)
-
         let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
-
         alert.addAction(okButton)
-
         self.present(alert, animated: true)
     }
     func showAlert(message: String) {
@@ -80,7 +77,6 @@ extension ProvideProductInfoViewController{
         let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { _ in
             self.navigationController?.popViewController(animated: true)
         }
-
         alert.addAction(okButton)
         self.present(alert, animated: true)
     }

@@ -50,18 +50,25 @@ class ProductListViewController: UIViewController {
         productViewModel.initEventController { event in
             switch event {
             case .loading:
+                self.indicatorView.startAnimating()
                 break
             case .stopLoading:
+                self.indicatorView.stopAnimating()
                 self.refreshControl.endRefreshing()
             case .dataLoaded:
-                self.indicatorView.stopAnimating()
                 self.productList = self.productViewModel.productList
                 self.tableView.reloadData()
-
             case .error(let error):
-                print(error as Any)
+                self.openAlert(message: error ?? "")
             }
         }
+    }
+    
+    func openAlert(message: String) -> Void {
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertController.Style.alert)
+        let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+        alert.addAction(okButton)
+        self.present(alert, animated: true)
     }
     
     @IBAction func addButtonAdded(_ sender: UIBarButtonItem) {
@@ -102,7 +109,8 @@ extension ProductListViewController: UITableViewDelegate {
             update.backgroundColor = .systemIndigo
             
             let delete = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
-               
+                let product = self.productList[indexPath.row]
+                self.productViewModel.deleteProduct(id: product.id ?? "")
             }
             return UISwipeActionsConfiguration(actions: [delete,update])
         }
