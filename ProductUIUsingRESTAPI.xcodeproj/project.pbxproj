@@ -27,6 +27,7 @@
 		0419411A2A40B2B900E47FC2 /* PostProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041941192A40B2B900E47FC2 /* PostProductModel.swift */; };
 		0419411C2A40B8F500E47FC2 /* ProvideProductInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419411B2A40B8F500E47FC2 /* ProvideProductInfoViewModel.swift */; };
 		0419411F2A40BB0900E47FC2 /* ProductContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419411E2A40BB0900E47FC2 /* ProductContent.swift */; };
+		04E534FA2A4227950019EFA3 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E534F92A4227950019EFA3 /* UpdateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		041941192A40B2B900E47FC2 /* PostProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProductModel.swift; sourceTree = "<group>"; };
 		0419411B2A40B8F500E47FC2 /* ProvideProductInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvideProductInfoViewModel.swift; sourceTree = "<group>"; };
 		0419411E2A40BB0900E47FC2 /* ProductContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductContent.swift; sourceTree = "<group>"; };
+		04E534F92A4227950019EFA3 /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			children = (
 				041940F82A4001BA00E47FC2 /* GET_Products */,
 				041941132A40A9E000E47FC2 /* POST_Product */,
+				04E534F52A4225380019EFA3 /* UPDATE_Products */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -228,6 +231,38 @@
 			name = "Common Models";
 			sourceTree = "<group>";
 		};
+		04E534F52A4225380019EFA3 /* UPDATE_Products */ = {
+			isa = PBXGroup;
+			children = (
+				04E534F82A4225600019EFA3 /* Model */,
+				04E534F72A42255D0019EFA3 /* View */,
+				04E534F62A42255A0019EFA3 /* ViewModel */,
+			);
+			path = UPDATE_Products;
+			sourceTree = "<group>";
+		};
+		04E534F62A42255A0019EFA3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		04E534F72A42255D0019EFA3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04E534F92A4227950019EFA3 /* UpdateViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04E534F82A4225600019EFA3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -313,6 +348,7 @@
 				041940DF2A3FFF3C00E47FC2 /* AppDelegate.swift in Sources */,
 				0419411C2A40B8F500E47FC2 /* ProvideProductInfoViewModel.swift in Sources */,
 				041941092A40147C00E47FC2 /* NetworkError.swift in Sources */,
+				04E534FA2A4227950019EFA3 /* UpdateViewController.swift in Sources */,
 				0419410D2A402CEA00E47FC2 /* URLConstant.swift in Sources */,
 				041940FD2A40031100E47FC2 /* ProductListViewController.swift in Sources */,
 				041941182A40B29600E47FC2 /* ProvideProductInfoViewController.swift in Sources */,
