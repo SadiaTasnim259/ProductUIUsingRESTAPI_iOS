@@ -101,17 +101,23 @@ extension ProductListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true) // Row select effect
     }
-    
+
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            let update = UIContextualAction(style: .normal, title: "Update") { _, _, _ in
-                
-            }
-            update.backgroundColor = .systemIndigo
+        let update = UIContextualAction(style: .normal, title: "Update") { _, _, _ in
+
+            let updateViewController = self.storyboard?.instantiateViewController(withIdentifier: "UpdateViewController") as! UpdateViewController
             
-            let delete = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
-                let product = self.productList[indexPath.row]
-                self.productViewModel.deleteProduct(id: product.id ?? "")
-            }
-            return UISwipeActionsConfiguration(actions: [delete,update])
+            let product = self.productList[indexPath.row]
+            updateViewController.updateObject = product
+            self.navigationController?.pushViewController(updateViewController, animated: true)
+
         }
+        update.backgroundColor = .systemIndigo
+
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+            let product = self.productList[indexPath.row]
+            self.productViewModel.deleteProduct(id: product.id ?? "")
+        }
+        return UISwipeActionsConfiguration(actions: [delete, update])
+    }
 }
