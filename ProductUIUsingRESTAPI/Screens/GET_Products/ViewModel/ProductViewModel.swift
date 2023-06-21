@@ -8,22 +8,22 @@
 import Foundation
 
 
-final class ProductViewModel{
-    
-    var productList:[ProductContent] = []
-    
-    var eventHandler:((_ event:Event) -> Void)?
-    
+final class ProductViewModel {
+
+    var productList: [ProductContent] = []
+
+    var eventHandler: ((_ event: Event) -> Void)?
+
     // MARK: - Event handler initialization
-    func initEventController( _ event:@escaping (_ event:Event) -> Void)   {
+    func initEventController(_ event: @escaping (_ event: Event) -> Void) {
         self.eventHandler = event
     }
 
     // MARK: - GET product
 
-    func getProduct(){
+    func getProduct() {
         self.eventHandler?(.loading)
-        
+
         NetworkManager.shared.httpRequest(urlString: API.GET_ALL_PRODUCTS, httpMethodType: .GET, respnseType: GetProductModelList.self) { result in
             DispatchQueue.main.async {
                 self.eventHandler?(.stopLoading)
@@ -41,30 +41,27 @@ final class ProductViewModel{
 
 // MARK: - Delete product
 
-extension ProductViewModel{
-    
-    func deleteProduct(id:String){
+extension ProductViewModel {
+
+    func deleteProduct(id: String) {
         self.eventHandler?(.loading)
-        
-        NetworkManager.shared.httpRequest(urlString: API.DELETE_PRODUCT+id, httpMethodType: .DELETE, respnseType: ProductAddResponse.self) { result in
+
+        NetworkManager.shared.httpRequest(urlString: API.DELETE_PRODUCT + id, httpMethodType: .DELETE, respnseType: ProductAddResponse.self) { result in
             DispatchQueue.main.async {
                 self.eventHandler?(.stopLoading)
                 switch result {
                 case .success(let success):
-                    if success.flag ?? false{
+                    if success.flag ?? false {
                         self.getProduct()
-                    }else{
+                    } else {
                         self.eventHandler?(.error("Unable to delete"))
                     }
-                    
+
                 case .failure(let failure):
                     self.eventHandler?(.error(failure.errorDescription))
                 }
             }
         }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 4){ // akn theke 4 sec por ei function er vitorer code execute korbe
-//            self.eventHandler?(.stopLoading)
-//        }
     }
 }
 

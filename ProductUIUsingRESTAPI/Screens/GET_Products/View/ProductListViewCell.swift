@@ -14,7 +14,7 @@ class ProductListViewCell: UITableViewCell {
     @IBOutlet weak var productQuentityLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productBackgroundView: UIView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         productBackgroundView.layer.cornerRadius = 15
@@ -27,12 +27,12 @@ class ProductListViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    func ProductDetailConfiguration(product: ProductContent){
+
+    func ProductDetailConfiguration(product: ProductContent) {
         productNameLabel.text = product.name
         productQuentityLabel.text = "Quentity: \(product.quentity ?? 0) "
         productPriceLabel.text = "$\(product.price ?? 0)"
         productImageView.setImage(with: product.image ?? "")
     }
-    
+
 }

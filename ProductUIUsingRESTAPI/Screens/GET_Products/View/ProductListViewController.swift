@@ -32,7 +32,7 @@ class ProductListViewController: UIViewController {
     @objc func refresh(_ sender: Any) {
         productViewModel.getProduct()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         configuration()
     }
@@ -63,20 +63,20 @@ class ProductListViewController: UIViewController {
             }
         }
     }
-    
+
     func openAlert(message: String) -> Void {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertController.Style.alert)
         let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
         alert.addAction(okButton)
         self.present(alert, animated: true)
     }
-    
+
     @IBAction func addButtonAdded(_ sender: UIBarButtonItem) {
         let provideProductInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProvideProductInfoViewController") as! ProvideProductInfoViewController
-                
-                self.navigationController?.pushViewController(provideProductInfoViewController, animated: true)
+
+        self.navigationController?.pushViewController(provideProductInfoViewController, animated: true)
     }
-    
+
 
 }
 
@@ -106,7 +106,7 @@ extension ProductListViewController: UITableViewDelegate {
         let update = UIContextualAction(style: .normal, title: "Update") { _, _, _ in
 
             let updateViewController = self.storyboard?.instantiateViewController(withIdentifier: "UpdateViewController") as! UpdateViewController
-            
+
             let product = self.productList[indexPath.row]
             updateViewController.updateObject = product
             self.navigationController?.pushViewController(updateViewController, animated: true)
